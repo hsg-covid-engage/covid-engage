@@ -1,13 +1,27 @@
 from flask import Flask, render_template, request, redirect, session
 import mysql.connector
 import os
+from flask_sqlalchemy import SQLAlchemy 
 
 
 app = Flask(__name__)
-#app.secret_key=os.urandom(24)
+app.config.from_object('config.DevelopmentConfig')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
-#conn=mysql.connector.connect(host="", username="", password="", database= "")
-#cursor=conn.cursor()
+class User3(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(120), unique=True, nullable=False)
+
+    def __repr__(self):
+        return '[%r]' % (self.name)
+        #return '[%r, %r]' % (self.email, self.password)
+        #return '<Users %r>' % self.name
+        #return self.email
+
+
 
 @app.route("/")
 def login():
@@ -31,6 +45,12 @@ def login_validation():
     email=request.form.get('email')
     password=request.form.get('password')
 
+    if str(User3.query.filter_by(email=email).filter_by(password=password).first()) != 'None':
+        return redirect('/home')
+    
+    else:
+        return redirect('/')
+
     #cursor.execute("""SELECT * FROM 'users' WHERE 'email' LIKE '{}' AND 'password' LIKE '{}'""".format(email,password))
     #users=cursor.fetchall()
     #if len(users)>0:
@@ -39,13 +59,17 @@ def login_validation():
     #else:
     #   return render_template('login.html') #redirect('/')
 
-    return "The email is {} and the password is {}".format(email,password)
+    #return "The email is {} and the password is {}".format(email,password)
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
     name=request.form.get('uname')
     email=request.form.get('uemail')
     password=request.form.get('upassword')
+
+    db_user = User3(name=name, email=email, password=password)
+    db.session.add(db_user)
+    db.session.commit()
 
     #cursor.execute("""INSERT INTO 'users' ('user_id', 'name', 'email', 'password') VALUES
     # (NULL, '{}','{}','{}')""".format(name,email,password))
@@ -55,8 +79,8 @@ def add_user():
     #myuser=cursor.fetchall()
 
     #session['user_id']=myuser[0][0]
-    #return redirect ('/home')
-    return "User registered successfully"
+    return redirect ('/')
+    #return "User registered successfully"
 
 @app.route('/logout')
 def logout():
