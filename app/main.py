@@ -20,8 +20,6 @@ class User3(db.Model):
         #return '<Users %r>' % self.name
         #return self.email
 
-
-
 @app.route("/")
 def login():
     return render_template("login.html")
@@ -88,6 +86,6 @@ def logout():
 
 if __name__ == "__main__":
     # Only for debugging while developing
-    app.run(host='0.0.0.0', debug=True, port=8080)
+    app.run(host='0.0.0.0', debug=os.getenv('FLASK_DEBUG'), port=8080)
 
     
