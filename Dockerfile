@@ -1,4 +1,4 @@
-FROM python:3.8-slim-buster
+FROM tiangolo/meinheld-gunicorn:python3.8
 
 COPY ./app /app
 
