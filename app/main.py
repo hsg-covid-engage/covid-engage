@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, session
-import mysql.connector
 import os
 from flask_sqlalchemy import SQLAlchemy 
 
@@ -88,6 +87,7 @@ def logout():
     return redirect('/')
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Only for debugging while developing
+    app.run(host='0.0.0.0', debug=True, port=80)
 
     
