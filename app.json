@@ -14,5 +14,10 @@
                 "version": "9.5"
             }
         }
-    ]
+    ],
+    "buildpacks": [
+        {
+            "url": "https://github.com/heroku/heroku-buildpack-python"
+        }
+    ],
 }
