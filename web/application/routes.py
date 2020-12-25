@@ -1,3 +1,4 @@
+"""App Routes"""
 from flask import Flask, render_template, request, redirect, session
 from flask import current_app as app
 from .models import db, User
@@ -7,12 +8,10 @@ def login():
     return render_template("login.html")
     #return "Hello World!"
 
-
 @app.route("/register")
 def register():
     return render_template("register.html")
     #return "Hello World!"
-
 
 @app.route("/home")
 def home():
@@ -21,7 +20,6 @@ def home():
     #else:
     #    return redirect('/')
 
-
 @app.route("/login_validation", methods=['POST'])
 def login_validation():
     email = request.form.get('email')
@@ -29,7 +27,6 @@ def login_validation():
 
     if str(User.query.filter_by(email=email).filter_by(password=password).first()) != 'None':
         return redirect('/home')
-
     else:
         return redirect('/')
 
@@ -65,13 +62,7 @@ def add_user():
     return redirect('/')
     #return "User registered successfully"
 
-
 @app.route('/logout')
 def logout():
     #session.pop('user_id')
     return redirect('/')
-
-
-if __name__ == "__main__":
-    # Only for debugging while developing
-    app.run(host='0.0.0.0', debug=os.getenv('FLASK_DEBUG'), port=8080)
