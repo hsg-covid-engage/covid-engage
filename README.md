@@ -10,6 +10,11 @@ The Covid Symptom Tracker is a web application that allows COVID-19 Positive pat
 
 ### Vanilla
 
+**Note* installing `psycopg2-binary` might fail on OSX. You might need to do the following
+1. Make sure postgresql is installed `brew install postgresql`
+2. Set the openssl to venv environment variable as per [this StackOverflow answer](https://stackoverflow.com/a/55839410)
+```export LDFLAGS="-L/usr/local/opt/openssl/lib"```
+
 
 ## Usage
 
