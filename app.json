@@ -2,7 +2,7 @@
     "name": "hsg-covid19-engage",
     "description": "A simple covid19 symptom tracker",
     "repository": "https://github.com/hsg-covid-engage/covid-engage/tree/docker-composed-app",
-    "logo": "https://node-js-sample.herokuapp.com/node.png",
+    "logo": "https://github.com/hsg-covid-engage.png",
     "keywords": [
         "flask",
         "static"
