@@ -16,6 +16,10 @@ docker-compose build
 docker-compose up -d
 ```
 
+As these are stored in `start.sh`,  you can alternatively run
+```bash
+sh start.sh
+```
 ### 3 Vanilla (full)
 
 #### Flask app 
