@@ -42,8 +42,10 @@ DATABASE_URL=postgresql://user:password@localhost:5432/database_name
 3. Set the HTTP port to `5000`
 4. Set the start script as `gunicorn --bind 0.0.0.0:5000 wsgi:app`
 
-See the below config for a DigitalOcean Apps deployment
+See the below config for a DigitalOcean Apps deployment:
 
+![do-app-setup](docs/images/do-app-setup.png)
+![do-app-env-setup](docs/images/do-app-env-setup.png)
 
 
 ### 4 Vanilla (full)
