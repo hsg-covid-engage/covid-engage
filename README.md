@@ -38,8 +38,9 @@ python3 -m venv venv
 pip install -r requirements.txt
 
 # run the app
-python wsgi.py
+gunicorn --bind 0.0.0.0:5000 wsgi:app
 ```
+
 **Note* installing `psycopg2-binary` might fail on OSX. You might need to do the following
 1. Make sure postgresql is installed `brew install postgresql`
 2. Set the openssl to venv environment variable as per [this StackOverflow answer](https://stackoverflow.com/a/55839410)
