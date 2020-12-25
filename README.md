@@ -9,7 +9,30 @@ The Covid Symptom Tracker is a web application that allows COVID-19 Positive pat
 
 ### Docker
 
+Run the following
+
+```bash
+docker-compose build
+docker-compose up -d
+```
+
 ### Vanilla
+
+#### PostgreQL set up
+
+#### Flask app 
+Plase make sure that you've configured postgres
+```python
+# create virtual environment & activate
+python3 -m venv venv
+. venv/bin/activate
+
+# install requirements
+pip install -r requirements.txt
+
+# run the app
+python wsgi.py
+```
 
 **Note* installing `psycopg2-binary` might fail on OSX. You might need to do the following
 1. Make sure postgresql is installed `brew install postgresql`
