@@ -2,10 +2,10 @@ version: '3.7'
 
 services:
   web:
-    build: ./web
+    build: ./
     command: python wsgi.py
     volumes:
-      - ./web/:/usr/src/app/
+      - ./:/usr/src/app/
     ports:
       - 5000:5000
     env_file:

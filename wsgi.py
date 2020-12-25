@@ -1,6 +1,6 @@
 """App entry point."""
 import os
-from application import create_app
+from app import create_app
 
 app = create_app()
 port = int(os.environ.get("PORT", 5000))
