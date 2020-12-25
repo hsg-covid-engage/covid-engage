@@ -5,7 +5,7 @@ The Covid Symptom Tracker is a web application that allows COVID-19 Positive pat
 ## Installation
 
 ### Heroku one Click
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/hsg-covid-engage/covid-engage/tree/docker-composed-app)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/hsg-covid-engage/covid-engage/tree/main)
 
 ### Docker
 
