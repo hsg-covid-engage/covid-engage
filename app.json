@@ -1,0 +1,29 @@
+{
+    "name": "hsg-covid19-engage",
+    "description": "A simple covid19 symptom tracker",
+    "repository": "https://github.com/hsg-covid-engage/covid-engage/tree/docker-composed-app",
+    "logo": "https://github.com/hsg-covid-engage.png",
+    "keywords": [
+        "flask",
+        "static"
+    ],
+    "formation": {
+        "web": {
+            "quantity": 1,
+            "size": "free"
+        }
+    },
+    "addons": [
+        {
+            "plan": "heroku-postgresql",
+            "options": {
+                "version": "12"
+            }
+        }
+    ],
+    "buildpacks": [
+        {
+            "url": "https://github.com/heroku/heroku-buildpack-python"
+        }
+    ]
+}
