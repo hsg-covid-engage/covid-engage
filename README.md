@@ -22,7 +22,7 @@ docker-compose up -d
 
 #### Flask app 
 Plase make sure that you've configured postgres
-```python
+```bash
 # create virtual environment & activate
 python3 -m venv venv
 . venv/bin/activate
