@@ -26,7 +26,8 @@ This is useful if you want to leverage the distributed infrastructure of public 
 1. Digital Ocean Apps + Managed Database
 2. Google App Engine (or Cloud Run) + Google Cloud SQL
 3. AWS Elastic Beanstalk + AWS RDS
-... and so on
+4. Heroku + Heroku Postgres (like above)
+5. ... and so on
 
 There are many tutorials on how to set this up for the specific provider, but the setup is quite similar to the vanilla install below. The only differences are that you:
 1. Don't need to set up your own database (can do via Cloud provider's API or web console)
