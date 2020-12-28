@@ -30,6 +30,8 @@ class Symptoms(db.Model):
     smell_imparement = db.Column(db.Integer)
     taste_imparement = db.Column(db.Integer)
     def __repr__(self):
-        return '[%r]' % (self.name)
+        return '[%r]' % (self.symptoms)
+    
+   
     
 
