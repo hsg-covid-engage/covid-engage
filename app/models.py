@@ -18,19 +18,19 @@ class Symptoms(db.Model):
     __tablename__="symptoms"
 
     id = db.Column(db.Integer, primary_key=True)
-    #user_id = Column(Integer, ForeignKey('user3.id'))
-    #user3 = relationship("User", backref=backref(user3, uselist=False))
+    id_user = db.Column(db.Integer, db.ForeignKey('user3.id'))
+    user3 = db.relationship("User", backref=db.backref("user3", uselist=False))
     # see link: https://stackoverflow.com/questions/41569206/flask-sqlalchemy-foreign-key-relationships
-    fever = db.Column(db.Integer)
-    cough = db.Column(db.Integer)
-    myalgia = db.Column(db.Integer)
-    sputum = db.Column(db.Integer)
-    hemoptysis = db.Column(db.Integer)
-    diarrhea = db.Column(db.Integer)
-    smell_imparement = db.Column(db.Integer)
-    taste_imparement = db.Column(db.Integer)
+    fever = db.Column(db.String)
+    cough = db.Column(db.String)
+    myalgia = db.Column(db.String)
+    sputum = db.Column(db.String)
+    hemoptysis = db.Column(db.String)
+    diarrhea = db.Column(db.String)
+    smell_imparement = db.Column(db.String)
+    taste_imparement = db.Column(db.String)
     def __repr__(self):
-        return '[%r]' % (self.symptoms)
+        return '[%r]' % (self.fever)
     
    
     

@@ -1,7 +1,12 @@
 """App Routes"""
 from flask import Flask, render_template, request, redirect, session
 from flask import current_app as app
-from .models import db, User
+from .models import db, User, Symptoms
+
+@app.route("/FAQ")
+def FAQ():
+    
+    return render_template("FAQ.html")
 
 @app.route("/")
 def login():
@@ -69,14 +74,14 @@ def logout():
 @app.route('/add_symptoms', methods=['POST'])
 def add_symptoms():
     #https://python-forum.io/Thread-how-i-save-the-html-form-to-flask-database
-    fever = request.form.get('fever')
-    cough = request.form.get('cough')
-    myalgia = request.form.get('myalgia')
-    sputum = request.form.get('sputum')
-    hemoptysis= request.form.get('hemoptysis')
-    diarrhea = request.form.get('diarrhea')
-    smell_imparement = request.form.get('smell')
-    taste_imparement = request.form.get('taste')
+    fever = int(request.form.get('fever'))
+    cough = int(request.form.get('cough'))
+    myalgia = int(request.form.get('myalgia'))
+    sputum = int(request.form.get('sputum'))
+    hemoptysis= int(request.form.get('hemoptysis'))
+    diarrhea = int(request.form.get('diarrhea'))
+    smell_imparement = int(request.form.get('smell'))
+    taste_imparement = int(request.form.get('taste'))
     
 
 

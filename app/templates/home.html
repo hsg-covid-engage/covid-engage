@@ -21,16 +21,18 @@
             <nav class="my-2 my-md-0 mr-md-3">
                 <a class="p-2 text-light" href="/home">Home</a>
                 <a class="p-2 text-light" href="#">Profile</a>
-                <a class="p-2 text-light" href="#">FAQ</a>
+                <a class="p-2 text-light" href="/FAQ">FAQ</a>
             </nav>
             <a class="btn btn-outline-primary" href="/logout">Logout</a>
         </div>
+        <form class="form" method = 'POST' action='/add_symptoms'> 
 
 
-        <table class="center" style="margin-left:auto;margin-right:auto;width: 50%;" method = 'POST' action='/add_symptoms'>
+
+        <table class="center" style="margin-left:auto;margin-right:auto;width: 50%;" >
             <thead>
               <tr style="border-bottom: 1px solid rgb(83, 82, 82);height: 40px;">
-                <th>Symtoms</th>
+                <th>Symptoms</th>
                 <th>Value</th>
               </tr>
             </thead>
@@ -97,7 +99,7 @@
                     <option value="7">7</option>
                     <option value="8">8</option>
                     <option value="9">9</option>
-                    <option value="9">10</option>
+                    <option value="10">10</option>
                   </select>
                 </td>
               </tr>
@@ -115,7 +117,7 @@
                     <option value="7">7</option>
                     <option value="8">8</option>
                     <option value="9">9</option>
-                    <option value="9">10</option>
+                    <option value="10">10</option>
                   </select>
                 </td>
               </tr>
@@ -133,7 +135,7 @@
                     <option value="7">7</option>
                     <option value="8">8</option>
                     <option value="9">9</option>
-                    <option value="9">10</option>
+                    <option value="10">10</option>
                   </select>
                 </td>
               </tr>
@@ -151,7 +153,7 @@
                     <option value="7">7</option>
                     <option value="8">8</option>
                     <option value="9">9</option>
-                    <option value="9">10</option>
+                    <option value="10">10</option>
                   </select>
                 </td>
               </tr>
@@ -169,7 +171,7 @@
                     <option value="7">7</option>
                     <option value="8">8</option>
                     <option value="9">9</option>
-                    <option value="9">10</option>
+                    <option value="10">10</option>
                   </select>
                 </td>
               </tr>
@@ -187,7 +189,7 @@
                     <option value="7">7</option>
                     <option value="8">8</option>
                     <option value="9">9</option>
-                    <option value="9">10</option>
+                    <option value="10">10</option>
                   </select>
                 </td>
               </tr>
@@ -205,17 +207,19 @@
                     <option value="7">7</option>
                     <option value="8">8</option>
                     <option value="9">9</option>
-                    <option value="9">10</option>
+                    <option value="10">10</option>
                   </select>
                 </td>
               </tr>
               
             </tbody>
         </table>
+        
     
     <div style="text-align: center;">
       <input type="submit" style="margin-top: 20px;" class="btn btn-outline-primary" value="Submit Results">
-    </div>  
+    </div> 
+  </form> 
 
 
     </body>
