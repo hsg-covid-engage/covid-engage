@@ -18,8 +18,8 @@ class Symptoms(db.Model):
     __tablename__="symptoms"
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey('user3.id'))
-    user3 = relationship("User", backref=backref(user3, uselist=False))
+    #user_id = Column(Integer, ForeignKey('user3.id'))
+    #user3 = relationship("User", backref=backref(user3, uselist=False))
     # see link: https://stackoverflow.com/questions/41569206/flask-sqlalchemy-foreign-key-relationships
     fever = db.Column(db.Integer)
     cough = db.Column(db.Integer)

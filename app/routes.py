@@ -68,6 +68,18 @@ def logout():
     return redirect('/')
 @app.route('/add_symptoms', methods=['POST'])
 def add_symptoms():
+    #https://python-forum.io/Thread-how-i-save-the-html-form-to-flask-database
+    fever = request.form.get('fever')
+    cough = request.form.get('cough')
+    myalgia = request.form.get('myalgia')
+    sputum = request.form.get('sputum')
+    hemoptysis= request.form.get('hemoptysis')
+    diarrhea = request.form.get('diarrhea')
+    smell_imparement = request.form.get('smell')
+    taste_imparement = request.form.get('taste')
+    
+
+
     
 
     db_symptoms = Symptoms(id=id, fever=fever, cough=cough, myalgia=myalgia,sputum=sputum,hemoptysis=
