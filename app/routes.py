@@ -82,7 +82,8 @@ def add_symptoms():
 
     
 
-    db_symptoms = Symptoms(id=id, fever=fever, cough=cough, myalgia=myalgia,sputum=sputum,hemoptysis=
+    db_symptoms = Symptoms(fever=fever, cough=cough, myalgia=myalgia,sputum=sputum,hemoptysis=
     hemoptysis, diarrhea=diarrhea,smell_imparement=smell_imparement,taste_imparement=taste_imparement)
     db.session.add(db_symptoms)
     db.session.commit()
+    return redirect('/home')
