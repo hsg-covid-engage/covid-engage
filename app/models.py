@@ -31,6 +31,31 @@ class Symptoms(db.Model):
     taste_imparement = db.Column(db.String)
     def __repr__(self):
         return '[%r]' % (self.fever)
+    def to_json(self):
+        return {
+            #"id":int(self.id),
+            #"id_user":int(self.id_user),
+            #"fever":int(self.fever),
+            #"cough":int(self.cough),
+            #"myalgia":int(self.myalgia),
+            #"sputum":int(self.sputum),
+            #"hemoptysis":int(self.hemoptysis),
+            #"diarrhea":int(self.diarrhea),
+            #"smell_imparement":int(self.smell_imparement),
+            #"taste_imparement":int(self.taste_imparement)
+            "id":int(self.id),
+            "id_user":int(self.id_user),
+            "fever":int(self.fever),
+            "cough":int(self.cough),
+            "myalgia":int(self.myalgia),
+            "sputum":int(self.sputum),
+            "hemoptysis":int(self.hemoptysis),
+            "diarrhea":int(self.diarrhea),
+            "smell_imparement":int(self.smell_imparement),
+            "taste_imparement":int(self.taste_imparement)
+
+
+        }
     
    
     
