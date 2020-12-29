@@ -14,6 +14,8 @@ class User(db.Model):
         #return '[%r, %r]' % (self.email, self.password)
         #return '<Users %r>' % self.name
         #return self.email
+
+
 class Symptoms(db.Model):
     __tablename__="symptoms"
 
@@ -29,6 +31,7 @@ class Symptoms(db.Model):
     diarrhea = db.Column(db.String)
     smell_imparement = db.Column(db.String)
     taste_imparement = db.Column(db.String)
+    
     def __repr__(self):
         return '[%r]' % (self.fever)
     
