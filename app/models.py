@@ -14,6 +14,8 @@ class User(db.Model):
         #return '[%r, %r]' % (self.email, self.password)
         #return '<Users %r>' % self.name
         #return self.email
+
+
 class Symptoms(db.Model):
     __tablename__="symptoms"
 
