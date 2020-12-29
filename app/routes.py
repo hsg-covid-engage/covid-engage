@@ -3,6 +3,9 @@ from flask import Flask, render_template, request, redirect, session, jsonify
 from flask import current_app as app
 from .models import db, User, Symptoms
 import json
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
 
 
 @app.route("/home_test")
@@ -113,7 +116,7 @@ def add_symptoms():
 
     # Output the query result as JSON
     #print(json.dumps(response))
-@app.route('/thankyou', methods=['GET'])
+@app.route('/test', methods=['GET'])
 def thankyou():
     #summary = jsonify(json_list = Symptoms.query.all())
     ###summary = Symptoms.query.all()
@@ -127,20 +130,44 @@ def thankyou():
     
     #for i in range(len(rec)):
      #   x = rec[i].to_json()
-    xa = rec[0].to_json()
-    xb = rec[1].to_json()
-    a=json.dumps(xa)
-    b=json.dumps(xb)
+    #xa = rec[0].to_json()
+    #xb = rec[1].to_json()
+    #a=json.dumps(xa)
     #b=json.dumps(xb)
-    ls=[]
-    ls.append(a)
-    ls.append(b)
-    d = dict(ls)
+    #b=json.dumps(xb)
+    #ls=[]
+    #ls.append(a)
+    #ls.append(b)
+    #d = dict(ls)
+    #d=json.dump(rec,open("out.json","a+"))
+    
+
+    #result = []
+    #for i in range(len(rec)):
+    #    with open(i, "rb") as infile:
+    #        result.append(json.load(infile))
+    #x = json.loads(result)
+
+    #with open("merged_file.json", "wb") as outfile:
+    #    x=json.dump(result, outfile)
 
 
-   
+    #app.logger.info(rec)
 
     #records = summary.to_json
     #records = [z.to_json() for z in rec]
     #return render_template('home_test.html')
-    return d
+    #return str(rec)
+    #one = rec[0].to_json()
+    #two = rec[1].to_json()
+    #three = one
+    one = rec[0].to_json()
+    ds = []
+    for i in range(len(rec)):
+        ds.append(rec[i].to_json())
+    
+    d = {}
+    for k in one.keys():
+        d[k] = tuple(d[k] for d in ds)
+
+    return  d
