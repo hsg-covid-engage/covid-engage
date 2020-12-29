@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request, redirect, session, jsonify
 from flask import current_app as app
 from .models import db, User, Symptoms
+import json
 
 
 @app.route("/home_test")
@@ -115,9 +116,31 @@ def add_symptoms():
 @app.route('/thankyou', methods=['GET'])
 def thankyou():
     #summary = jsonify(json_list = Symptoms.query.all())
-    
+    ###summary = Symptoms.query.all()
+    ###rec = json.dumps(summary)
+    #result = summary.to_json
+    ###records = [z.to_json() for z in Symptoms.query.first()]
     #print(summary)
     #return render_template('home_test.html', summary=summary)
+    #!!!!!!!records = Symptoms.query.all().to_json()
+    rec = Symptoms.query.all()
     
-    records = [z.to_json() for z in Symptoms.query.all()]
-    return render_template('home_test.html', records=records)
+    #for i in range(len(rec)):
+     #   x = rec[i].to_json()
+    xa = rec[0].to_json()
+    xb = rec[1].to_json()
+    a=json.dumps(xa)
+    b=json.dumps(xb)
+    #b=json.dumps(xb)
+    ls=[]
+    ls.append(a)
+    ls.append(b)
+    d = dict(ls)
+
+
+   
+
+    #records = summary.to_json
+    #records = [z.to_json() for z in rec]
+    #return render_template('home_test.html')
+    return d
