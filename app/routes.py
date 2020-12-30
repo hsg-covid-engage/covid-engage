@@ -4,6 +4,8 @@ from flask import current_app as app
 from .models import db, User, Symptoms
 import json
 import logging
+#from react import React, PureComponent
+#from recharts import LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend 
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -116,6 +118,12 @@ def add_symptoms():
 
     # Output the query result as JSON
     #print(json.dumps(response))
+
+@app.route("/test")
+def test():
+    
+    return render_template("test.html")
+
 @app.route('/test', methods=['GET'])
 def thankyou():
     #summary = jsonify(json_list = Symptoms.query.all())
@@ -169,6 +177,8 @@ def thankyou():
     d = {}
     for k in one.keys():
         d[k] = tuple(d[k] for d in ds)
-    c = json.dumps(d)
+    #c = json.dumps(d)
 
-    return  c
+    return render_template('/test.html',c=json.dumps(d))
+
+
