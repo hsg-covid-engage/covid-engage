@@ -169,5 +169,6 @@ def thankyou():
     d = {}
     for k in one.keys():
         d[k] = tuple(d[k] for d in ds)
+    c = json.dumps(d)
 
-    return  d
+    return  c
