@@ -4,6 +4,7 @@ from flask import current_app as app
 from .models import db, User, Symptoms
 import json
 import logging
+from datetime import datetime
 #from react import React, PureComponent
 #from recharts import LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend 
 
@@ -33,7 +34,8 @@ def register():
 @app.route("/home")
 def home():
     #if 'user_id' in session:
-    return render_template("home.html")
+    return render_template("home.html",summary = json.dumps({"fever":[],"myalgia":[],
+    "cough":[],"sputum":[],"hemoptysis":[],"diarrhea":[],"smell":[],"taste":[]}))
     #else:
     #    return redirect('/')
 
@@ -95,13 +97,15 @@ def add_symptoms():
     diarrhea = int(request.form.get('diarrhea'))
     smell_imparement = int(request.form.get('smell'))
     taste_imparement = int(request.form.get('taste'))
-    
+    now = datetime.now()
+    formatted_date = now.strftime('%Y-%m-%d')
+    date = formatted_date
 
 
     
 
     db_symptoms = Symptoms(fever=fever, cough=cough, myalgia=myalgia,sputum=sputum,hemoptysis=
-    hemoptysis, diarrhea=diarrhea,smell_imparement=smell_imparement,taste_imparement=taste_imparement)
+    hemoptysis, diarrhea=diarrhea,smell_imparement=smell_imparement,taste_imparement=taste_imparement,date=date)
     db.session.add(db_symptoms)
     db.session.commit()
     return redirect('/home')
@@ -119,13 +123,9 @@ def add_symptoms():
     # Output the query result as JSON
     #print(json.dumps(response))
 
-@app.route("/test")
-def test():
-    
-    return render_template("test.html")
 
-@app.route('/test', methods=['GET'])
-def thankyou():
+@app.route('/track', methods=['GET'])
+def track():
     #summary = jsonify(json_list = Symptoms.query.all())
     ###summary = Symptoms.query.all()
     ###rec = json.dumps(summary)
@@ -178,7 +178,7 @@ def thankyou():
     for k in one.keys():
         d[k] = tuple(d[k] for d in ds)
     #c = json.dumps(d)
-
-    return render_template('/test.html',c=json.dumps(d))
+    
+    return render_template('home.html',summary=json.dumps(d))
 
 

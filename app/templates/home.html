@@ -221,6 +221,9 @@
     
     <div style="text-align: center;">
       <input type="submit" style="margin-top: 20px;" class="btn btn-outline-primary" value="Submit Results">
+      <a class="btn btn-outline-primary" style="margin-top: 20px;" href="{{ url_for('track') }}">Track Symptoms</a>
+    </div> 
+    </form>
     </div> 
   </form>
   
@@ -233,17 +236,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     
     <script>
+
       var myChartObject = document.getElementById('myChart');
-    
+      const summary =  JSON.parse({{summary|tojson}});
       var chart = new Chart(myChartObject, {
           type: 'line',
           data: {
-              labels: ["January.01.2020", "February.01.2020", "March.01.2020"],
+              labels: summary.date,
               datasets: [{
                   label: "Fever",
                   backgroundColor: 'rgba(65,105,225,0.4)',
                   borderColor: 'rgba(65,105,225,1)',
-                  data: [5,7,8]
+                  data: summary.fever
               }]
           },
           options: {
@@ -257,55 +261,56 @@
           }
       });
     </script>
+  </div>
+
+<div style="margin-top: 50px;margin-left:auto;margin-right:auto;width:40%">
+  <canvas id="myChart2" width="400" height="200"></canvas>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     
-    </div>
-    <div style="margin-top: 50px;margin-left:auto;margin-right:auto;width:40%">
-    <canvas id="myChart2" width="400" height="200"></canvas>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <script>
       var myChartObject = document.getElementById('myChart2');
-    
+      const summarya =  JSON.parse({{summary|tojson}});
       var chart = new Chart(myChartObject, {
           type: 'line',
           data: {
-              labels: ["January.01.2020", "February.01.2020", "March.01.2020"],
+              labels: summarya.date,
               datasets: [{
                   label: "Cough",
                   backgroundColor: 'rgba(150,30,30,0.4)',
                   borderColor: 'rgba(225,0,0,1)',
-                  data: [3,5,7]
+                  data:  summarya.cough
                 },{
                   label: "Myalgia",
                   backgroundColor: 'rgba(0,30,30,0.4)',
                   borderColor: 'rgba(0,225,0,1)',
-                  data: [0,1,2]
-
+                  data: summarya.myalgia
+  
                 },{
                   label: "Sputum Production",
                   backgroundColor: 'rgba(30,30,150,0.4)',
                   borderColor: 'rgba(0,0,225,1)',
-                  data: [8,9,10]
+                  data: summarya.sputum
                   
                 },{
                   label: "Hemoptysis",
                   backgroundColor: 'rgba(30,150,30,0.4)',
                   borderColor: 'rgba(0,150,0,1)',
-                  data: [0,3,6]
+                  data: summarya.hemoptysis
                 },{
                   label: "Diarrhea",
                   backgroundColor: 'rgba(30,30,30,0.4)',
                   borderColor: 'rgba(30,30,50,1)',
-                  data: [10,2,8]
+                  data: summarya.diarrhea
                 },{
                   label: "Imparement to Smell",
                   backgroundColor: 'rgba(150,30,225,0.4)',
                   borderColor: 'rgba(50,0,225,1)',
-                  data: [0,5,2]
+                  data: summarya.smell
                 },{
                   label: "Imparement to Taste",
                   backgroundColor: 'rgba(30,90,60,0.4)',
                   borderColor: 'rgba(30,90,60,1)',
-                  data: [6,0,2]
+                  data: summarya.taste
                 }]
           },
           options: {
@@ -319,8 +324,13 @@
           }
       });
     </script>
-    
-    </div>
+
+</div>
+
+
+
+
+
 
 
 

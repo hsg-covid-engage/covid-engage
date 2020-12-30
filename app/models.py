@@ -31,6 +31,7 @@ class Symptoms(db.Model):
     diarrhea = db.Column(db.String)
     smell_imparement = db.Column(db.String)
     taste_imparement = db.Column(db.String)
+    date = db.Column(db.String(80))
     
     def to_json(self):
         return {
@@ -53,7 +54,8 @@ class Symptoms(db.Model):
             "hemoptysis":self.hemoptysis,
             "diarrhea":self.diarrhea,
             "smell_imparement":self.smell_imparement,
-            "taste_imparement":self.taste_imparement
+            "taste_imparement":self.taste_imparement,
+            "date":self.date
 
 
         }
