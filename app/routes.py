@@ -163,8 +163,13 @@ def track():
     #print(summary)
     #return render_template('home_test.html', summary=summary)
     #!!!!!!!records = Symptoms.query.all().to_json()
-    rec = Symptoms.query.all()
+ #   rec = Symptoms.query.all()
     
+#User.query.filter(User.email.endswith('@example.com')).all()
+
+    rec = Symptoms.query.filter(Symptoms.id_user==session.get('user_id')).all()
+
+
     #for i in range(len(rec)):
      #   x = rec[i].to_json()
     #xa = rec[0].to_json()
@@ -198,16 +203,23 @@ def track():
     #one = rec[0].to_json()
     #two = rec[1].to_json()
     #three = one
-    one = rec[0].to_json()
-    ds = []
-    for i in range(len(rec)):
-        ds.append(rec[i].to_json())
+
+
+
+    try:
+        one = rec[0].to_json()
+        ds = []
+        for i in range(len(rec)):
+            ds.append(rec[i].to_json())
+        
+        d = {}
+        for k in one.keys():
+            d[k] = tuple(d[k] for d in ds)
+        #c = json.dumps(d)
+        
+        return render_template('home.html',summary=json.dumps(d))
     
-    d = {}
-    for k in one.keys():
-        d[k] = tuple(d[k] for d in ds)
-    #c = json.dumps(d)
-    
-    return render_template('home.html',summary=json.dumps(d))
+    except IndexError:
+        return redirect('/home')
 
 

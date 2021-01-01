@@ -23,7 +23,6 @@
             <h5 class="my-0 mr-md-auto font-weight-normal text-light">COVID19</h5>
             <nav class="my-2 my-md-0 mr-md-3">
                 <a class="p-2 text-light" href="/home">Home</a>
-                <a class="p-2 text-light" href="#">Profile</a>
                 <a class="p-2 text-light" href="/FAQ">FAQ</a>
             </nav>
             <a class="btn btn-outline-primary" href="/logout">Logout</a>
@@ -238,41 +237,41 @@
               labels: summarya.date,
               datasets: [{
                   label: "Cough",
-                  backgroundColor: 'rgba(150,30,30,0.4)',
-                  borderColor: 'rgba(225,0,0,1)',
+                  backgroundColor: 'rgba(0,0,0,0.4)',
+                  borderColor: 'rgba(0,0,0,1)',
                   data:  summarya.cough
                 },{
                   label: "Myalgia",
-                  backgroundColor: 'rgba(0,30,30,0.4)',
-                  borderColor: 'rgba(0,225,0,1)',
+                  backgroundColor: 'rgba(0,0,255,0.4)',
+                  borderColor: 'rgba(0,0,255,1)',
                   data: summarya.myalgia
   
                 },{
                   label: "Sputum Production",
-                  backgroundColor: 'rgba(30,30,150,0.4)',
-                  borderColor: 'rgba(0,0,225,1)',
+                  backgroundColor: 'rgba(0,255,0,0.4)',
+                  borderColor: 'rgba(0,255,0,1)',
                   data: summarya.sputum
                   
                 },{
                   label: "Hemoptysis",
-                  backgroundColor: 'rgba(30,150,30,0.4)',
-                  borderColor: 'rgba(0,150,0,1)',
+                  backgroundColor: 'rgba(0,255,255,0.4)',
+                  borderColor: 'rgba(0,255,255,1)',
                   data: summarya.hemoptysis
                 },{
                   label: "Diarrhea",
-                  backgroundColor: 'rgba(30,30,30,0.4)',
-                  borderColor: 'rgba(30,30,50,1)',
+                  backgroundColor: 'rgba(128,0,128,0.4)',
+                  borderColor: 'rgba(128,0,128,1)',
                   data: summarya.diarrhea
                 },{
                   label: "Imparement to Smell",
-                  backgroundColor: 'rgba(150,30,225,0.4)',
-                  borderColor: 'rgba(50,0,225,1)',
-                  data: summarya.smell
+                  backgroundColor: 'rgba(255,255,0,0.4)',
+                  borderColor: 'rgba(255,255,0,1)',
+                  data: summarya.smell_imparement
                 },{
                   label: "Imparement to Taste",
-                  backgroundColor: 'rgba(30,90,60,0.4)',
-                  borderColor: 'rgba(30,90,60,1)',
-                  data: summarya.taste
+                  backgroundColor: 'rgba(255,0,0,0.4)',
+                  borderColor: 'rgba(255,0,0,1)',
+                  data: summarya.taste_imparement
                 }]
           },
           options: {
