@@ -26,9 +26,7 @@ class User(db.Model):
 
     def __repr__(self):
         return '[%r]' % (self.name)
-        #return '[%r, %r]' % (self.email, self.password)
-        #return '<Users %r>' % self.name
-        #return self.email
+
 
 
 class Symptoms(db.Model):
@@ -37,7 +35,7 @@ class Symptoms(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     id_user = db.Column(db.Integer, db.ForeignKey(User.id))
     user = db.relationship('User', foreign_keys='Symptoms.id_user')
-     # see link: https://stackoverflow.com/questions/41569206/flask-sqlalchemy-foreign-key-relationships
+
     fever = db.Column(db.String)
     cough = db.Column(db.String)
     myalgia = db.Column(db.String)
@@ -50,16 +48,6 @@ class Symptoms(db.Model):
     
     def to_json(self):
         return {
-            #"id":int(self.id),
-            #"id_user":int(self.id_user),
-            #"fever":int(self.fever),
-            #"cough":int(self.cough),
-            #"myalgia":int(self.myalgia),
-            #"sputum":int(self.sputum),
-            #"hemoptysis":int(self.hemoptysis),
-            #"diarrhea":int(self.diarrhea),
-            #"smell_imparement":int(self.smell_imparement),
-            #"taste_imparement":int(self.taste_imparement)
             "id":self.id,
             "id_user":self.id_user,
             "fever":self.fever,
