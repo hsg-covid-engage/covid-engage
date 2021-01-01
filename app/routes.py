@@ -114,8 +114,6 @@ def add_symptoms():
     date = formatted_date
 
 
-    
-
     db_symptoms = Symptoms(id_user=user_id, fever=fever, cough=cough, myalgia=myalgia,sputum=sputum,hemoptysis=
     hemoptysis, diarrhea=diarrhea,smell_imparement=smell_imparement,taste_imparement=taste_imparement,date=date)
     db.session.add(db_symptoms)
