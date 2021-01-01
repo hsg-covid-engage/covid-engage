@@ -12,31 +12,37 @@ logging.basicConfig(level=logging.DEBUG)
 
 @app.route("/home_test")
 def home_test():
+    """BITTE ERGAENZEN"""
     return render_template("home_test.html")
 
 @app.route("/FAQ")
 def FAQ():
-    
+    """Route to the FAQ page"""
     return render_template("FAQ.html")
 
 @app.route("/")
 def login():
+    """Route to the login page"""
     return render_template("login.html")
    
 
 @app.route("/register")
 def register():
+    """Route to the register page"""
     return render_template("register.html")
 
 
 @app.route("/home")
 def home():
+    """BITTE ERGAENZEN"""
     return render_template("home.html",summary = json.dumps({"fever":[],"myalgia":[],
     "cough":[],"sputum":[],"hemoptysis":[],"diarrhea":[],"smell":[],"taste":[]}))
 
 
 @app.route("/login_validation", methods=['POST'])
 def login_validation():
+    """Check login data"""
+
     email = request.form.get('email')
     password = request.form.get('password')
 
@@ -53,6 +59,8 @@ def login_validation():
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
+    """Register a new user and add data to the database"""
+
     name = request.form.get('uname')
     email = request.form.get('uemail')
     password = request.form.get('upassword')
@@ -82,11 +90,13 @@ def add_user():
 
 @app.route('/logout')
 def logout():
+    """Logout the user and route to the start page"""
     return redirect('/')
+
 
 @app.route('/add_symptoms', methods=['POST'])
 def add_symptoms():
-    
+    """Add symptoms to the database"""
     
     user_id = session.get('user_id')
     
@@ -118,6 +128,8 @@ def add_symptoms():
 
 @app.route('/track', methods=['GET'])
 def track():
+    """Send historical symptoms data from database to charts"""
+
     rec = Symptoms.query.filter(Symptoms.id_user==session.get('user_id')).all()
 
     try:

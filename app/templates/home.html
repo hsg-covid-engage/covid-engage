@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Import Style.css file -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 
 
@@ -18,6 +19,8 @@
 
 
   </head>
+
+    <!-- Navigation bar -->
     <body>
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm  bg-nav">
             <h5 class="my-0 mr-md-auto font-weight-normal text-light">COVID19</h5>
@@ -30,7 +33,7 @@
         <form class="form" method = 'POST' action='/add_symptoms'> 
 
 
-
+        <!-- Table of symptoms -->
         <table class="center" style="margin-left:auto;margin-right:auto;width: 50%;" >
             <thead>
               <tr style="border-bottom: 1px solid rgb(83, 82, 82);height: 40px;">
@@ -179,7 +182,7 @@
             </tbody>
         </table>
         
-    
+    <!-- Submit and Tack Button -->
     <div style="text-align: center;">
       <input type="submit" style="margin-top: 20px;" class="btn btn-outline-primary" value="Submit Results">
       <a class="btn btn-outline-primary" style="margin-top: 20px;" href="{{ url_for('track') }}">Track Symptoms</a>
@@ -190,7 +193,7 @@
   
   
 
-  
+  <!-- Javascript charts of symptoms -->
   <div style="margin-top: 50px;margin-left:auto;margin-right:auto;width:40%">
     <canvas id="myChart" width="400" height="200"></canvas>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>

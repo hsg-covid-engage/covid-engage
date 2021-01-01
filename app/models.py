@@ -2,6 +2,8 @@
 from . import db
 
 class User(db.Model):
+    """Class that constructs the user database"""
+
     __tablename__ = "user8"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -30,6 +32,8 @@ class User(db.Model):
 
 
 class Symptoms(db.Model):
+    """Class that constructs the symptoms database"""
+
     __tablename__="symptoms6"
 
     id = db.Column(db.Integer, primary_key=True)
