@@ -10,10 +10,6 @@ from datetime import datetime
 logging.basicConfig(level=logging.DEBUG)
 
 
-@app.route("/home_test")
-def home_test():
-    """BITTE ERGAENZEN"""
-    return render_template("home_test.html")
 
 @app.route("/FAQ")
 def FAQ():
@@ -34,7 +30,9 @@ def register():
 
 @app.route("/home")
 def home():
-    """BITTE ERGAENZEN"""
+    """If no data is available for the symptoms an empty json file for each symptom
+     will be passed to the graph function to avoid an error"""
+     
     return render_template("home.html",summary = json.dumps({"fever":[],"myalgia":[],
     "cough":[],"sputum":[],"hemoptysis":[],"diarrhea":[],"smell":[],"taste":[]}))
 
