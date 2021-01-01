@@ -2,12 +2,27 @@
 from . import db
 
 class User(db.Model):
-    __tablename__ = "user3"
+    __tablename__ = "user8"
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), unique=True, nullable=False)
+    name = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
+
+    gender = db.Column(db.String(80))
+    age = db.Column(db.String(80))
+    smoking = db.Column(db.String(80))
+    weight = db.Column(db.String(80))
+    height = db.Column(db.String(80))
+    phealth = db.Column(db.String(80))
+    asthma = db.Column(db.String(80))
+    diabetes = db.Column(db.String(80))
+    heart = db.Column(db.String(80))
+    liver = db.Column(db.String(80))
+    kidney = db.Column(db.String(80))
+    dysfunction = db.Column(db.String(80))
+    distress = db.Column(db.String(80))
+    pneumonia = db.Column(db.String(80))
 
     def __repr__(self):
         return '[%r]' % (self.name)
@@ -17,12 +32,12 @@ class User(db.Model):
 
 
 class Symptoms(db.Model):
-    __tablename__="symptoms"
+    __tablename__="symptoms6"
 
     id = db.Column(db.Integer, primary_key=True)
-    id_user = db.Column(db.Integer, db.ForeignKey('user3.id'))
-    user3 = db.relationship("User", backref=db.backref("user3", uselist=False))
-    # see link: https://stackoverflow.com/questions/41569206/flask-sqlalchemy-foreign-key-relationships
+    id_user = db.Column(db.Integer, db.ForeignKey(User.id))
+    user = db.relationship('User', foreign_keys='Symptoms.id_user')
+     # see link: https://stackoverflow.com/questions/41569206/flask-sqlalchemy-foreign-key-relationships
     fever = db.Column(db.String)
     cough = db.Column(db.String)
     myalgia = db.Column(db.String)

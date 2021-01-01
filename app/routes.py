@@ -44,10 +44,18 @@ def login_validation():
     email = request.form.get('email')
     password = request.form.get('password')
 
-    if str(User.query.filter_by(email=email).filter_by(password=password).first()) != 'None':
+    user = User.query.filter_by(email=email).filter_by(password=password).first()
+  
+    if user: 
+        session['user_id'] = int(user.id)
         return redirect('/home')
     else:
         return redirect('/')
+
+    #if str(User.query.filter_by(email=email).filter_by(password=password).first()) != 'None':
+    #    return redirect('/home')
+    #else:
+    #    return redirect('/')
 
     #cursor.execute("""SELECT * FROM 'users' WHERE 'email' LIKE '{}' AND 'password' LIKE '{}'""".format(email,password))
     #users=cursor.fetchall()
@@ -66,7 +74,22 @@ def add_user():
     email = request.form.get('uemail')
     password = request.form.get('upassword')
 
-    db_user = User(name=name, email=email, password=password)
+    gender = request.form.get('gender')
+    age = request.form.get('age')
+    smoking = request.form.get('smoking')
+    weight = request.form.get('weight')
+    height = request.form.get('height')
+    phealth = request.form.get('phealth')
+    asthma = request.form.get('asthma')
+    diabetes = request.form.get('diabetes')
+    heart = request.form.get('heart')
+    liver = request.form.get('liver')
+    kidney = request.form.get('kidney')
+    dysfunction = request.form.get('dysfunction')
+    distress = request.form.get('distress')
+    pneumonia = request.form.get('pneumonia')
+
+    db_user = User(name=name,  email=email, password=password, gender=gender, age=age, smoking=smoking, weight=weight, height=height, phealth=phealth,asthma=asthma, diabetes=diabetes, heart=heart, liver=liver, kidney=kidney, dysfunction=dysfunction, distress=distress, pneumonia=pneumonia)
     db.session.add(db_user)
     db.session.commit()
 
@@ -86,9 +109,13 @@ def add_user():
 def logout():
     #session.pop('user_id')
     return redirect('/')
+
 @app.route('/add_symptoms', methods=['POST'])
 def add_symptoms():
     #https://python-forum.io/Thread-how-i-save-the-html-form-to-flask-database
+    
+    user_id = session.get('user_id')
+    
     fever = float(request.form.get('fever'))
     cough = int(request.form.get('cough'))
     myalgia = int(request.form.get('myalgia'))
@@ -97,6 +124,7 @@ def add_symptoms():
     diarrhea = int(request.form.get('diarrhea'))
     smell_imparement = int(request.form.get('smell'))
     taste_imparement = int(request.form.get('taste'))
+
     now = datetime.now()
     formatted_date = now.strftime('%Y-%m-%d')
     date = formatted_date
@@ -104,10 +132,11 @@ def add_symptoms():
 
     
 
-    db_symptoms = Symptoms(fever=fever, cough=cough, myalgia=myalgia,sputum=sputum,hemoptysis=
+    db_symptoms = Symptoms(id_user=user_id, fever=fever, cough=cough, myalgia=myalgia,sputum=sputum,hemoptysis=
     hemoptysis, diarrhea=diarrhea,smell_imparement=smell_imparement,taste_imparement=taste_imparement,date=date)
     db.session.add(db_symptoms)
     db.session.commit()
+
     return redirect('/home')
 
     #result = db.session.execute("SELECT * FROM symptoms WHERE id = : id", {"id":999} )
