@@ -63,6 +63,8 @@ def add_user():
     email = request.form.get('uemail')
     password = request.form.get('upassword')
 
+    location = request.form.get('location')
+
     gender = request.form.get('gender')
     age = request.form.get('age')
     smoking = request.form.get('smoking')
@@ -78,7 +80,7 @@ def add_user():
     distress = request.form.get('distress')
     pneumonia = request.form.get('pneumonia')
 
-    db_user = User(name=name,  email=email, password=password, gender=gender, age=age, smoking=smoking, weight=weight, height=height, phealth=phealth,asthma=asthma, diabetes=diabetes, heart=heart, liver=liver, kidney=kidney, dysfunction=dysfunction, distress=distress, pneumonia=pneumonia)
+    db_user = User(name=name,  email=email, password=password, location=location, gender=gender, age=age, smoking=smoking, weight=weight, height=height, phealth=phealth,asthma=asthma, diabetes=diabetes, heart=heart, liver=liver, kidney=kidney, dysfunction=dysfunction, distress=distress, pneumonia=pneumonia)
     db.session.add(db_user)
     db.session.commit()
 

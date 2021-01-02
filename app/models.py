@@ -4,13 +4,14 @@ from . import db
 class User(db.Model):
     """Class that constructs the user database"""
 
-    __tablename__ = "user8"
+    __tablename__ = "user9"
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(120), nullable=False)
 
+    location = db.Column(db.String(120))
     gender = db.Column(db.String(80))
     age = db.Column(db.String(80))
     smoking = db.Column(db.String(80))
